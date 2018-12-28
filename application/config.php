@@ -56,11 +56,11 @@ return [
     // +----------------------------------------------------------------------
 
     // 默认模块名
-    'default_module'         => 'index',
+    'default_module'         => 'web',
     // 禁止访问模块
     'deny_module_list'       => ['common'],
     // 默认控制器名
-    'default_controller'     => 'Index',
+    'default_controller'     => 'Home',
     // 默认操作名
     'default_action'         => 'index',
     // 默认验证器
@@ -156,7 +156,7 @@ return [
     // 显示错误信息
     'show_error_msg'         => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
-    'exception_handle'       => '',
+    'exception_handle'       => '\\app\\common\\exception\\Http',
 
     // +----------------------------------------------------------------------
     // | 日志设置
@@ -168,7 +168,7 @@ return [
         // 日志保存目录
         'path'  => LOG_PATH,
         // 日志记录级别
-        'level' => [],
+        'level' => ['sql'],
     ],
 
     // +----------------------------------------------------------------------
@@ -208,6 +208,7 @@ return [
         'type'           => '',
         // 是否自动开启 SESSION
         'auto_start'     => true,
+        'expire' => 7200
     ],
 
     // +----------------------------------------------------------------------
