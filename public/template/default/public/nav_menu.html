@@ -1,0 +1,16 @@
+<nav id="nav">
+    <ul>
+        <li><a href="{:url('web/home/index')}">HOME</a></li>
+        <li class="sepeator"></li>
+        <li><a href="{:url('web/product/index')}">PRODUCTS</a></li>
+        <li class="sepeator"></li>
+        {volist name="navArr" id="vo"}
+        {if condition="$vo['Id'] == $nav['Id']"}
+        <li class="current"><a href="{:url('web/page/index',['nav'=>$vo.Id])}">{$vo.title}</a></li>
+        {else /}
+        <li><a href="{:url('web/page/index',['nav'=>$vo.Id])}">{$vo.title}</a></li>
+        {/if}
+        <li class="sepeator"></li>
+        {/volist}
+    </ul>
+</nav>

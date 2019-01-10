@@ -7,7 +7,7 @@
  * Time: 20:04
  */
 
-namespace app\model;
+namespace app\common\model;
 
 
 class ProductCat extends BaseModel

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    {include file="public/seo"/}
+    <link rel="stylesheet" href="__STATIC__/css/inner.css" />
+    <script src="__STATIC__/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5.js"></script>
+    <![endif]-->
+
+    <style>
+        #category ol li ol li ol{visibility: visible; background: #FFF; border: 1px #ccc solid; z-index: 10000}
+    </style>
+</head>
+<body>
+{include file="public/search"/}
+{include file="public/header"/}
+<nav id="nav">
+    <ul>
+        <li><a href="{:url('web/home/index')}">HOME</a></li>
+        <li class="sepeator"></li>
+        <li class="current"><a href="{:url('web/product/index')}">PRODUCTS</a></li>
+        <li class="sepeator"></li>
+        {volist name="navArr" id="vo"}
+        <li><a href="{:url('web/page/index',['nav'=>$vo.Id])}">{$vo.title}</a></li>
+        <li class="sepeator"></li>
+        {/volist}
+    </ul>
+</nav>
+<div id="main">
+    <aside id="aside">
+        {php}$cat = get_product_cate();{/php}
+        <nav id="category">
+            <h2>Category List</h2>
+            {$cat}
+        </nav>
+        <section id="browse">
+            <h2>browse by price</h2>
+            <ol>
+                <li><a href="search.html?minPrice=0&amp;maxPrice=1">0~$1</a></li>
+                <li><a href="search-1.html?minPrice=1&amp;maxPrice=2">$1~$2</a></li>
+                <li><a href="search-2.html?minPrice=2&amp;maxPrice=5">$2~$5</a></li>
+                <li><a href="search-3.html?minPrice=5&amp;maxPrice=10000">OVER $5</a></li>
+            </ol>
+        </section>
+    </aside>
+    <section id="location">
+        <h2>Product</h2>
+        <p class="p1"><a href="">Home</a><span>&gt;</span><a href="">Products</a></p>
+    </section>
+    <article id="article">
+        <header class="header">
+            <div class="page">
+                <a href="javascript:;">Page:{$currentPage}/{$lastPage}</a>
+                {$page}
+            </div>
+            <div class="gridview">
+                <table cellspacing="0" cellpadding="0" border="0" align="center" id="controls" width="100%">
+                    <tbody>
+                    <tr>
+                        {if condition="$order == 'Id'"}
+                        <td width="18%" height="30"> <a href="{:url('web/product/index',['order'=>'Id','cate'=>$cate])}" class="down">Item No</a> </td>
+                        {else/}
+                        <td width="18%" height="30"> <a href="{:url('web/product/index',['order'=>'Id','cate'=>$cate])}">Item No</a> </td>
+                        {/if}
+
+                        {if condition="$order == 'price'"}
+                        <td width="20%"><a href="{:url('web/product/index',['order'=>'price','cate'=>$cate])}" class="down">Price</a></td>
+                        {else/}
+                        <td width="20%"><a href="{:url('web/product/index',['order'=>'price','cate'=>$cate])}">Price</a></td>
+                        {/if}
+
+                        {if condition="$order == 'hot'"}
+                        <td width="20%"><a href="{:url('web/product/index',['order'=>'hot','cate'=>$cate])}" class="down">Popularity</a></td>
+                        {else/}
+                        <td width="20%"><a href="{:url('web/product/index',['order'=>'hot','cate'=>$cate])}">Popularity</a></td>
+                        {/if}
+
+                        {if condition="$order == 'Id'"}
+                        <td width="20%"><a href="{:url('web/product/index',['order'=>'create_time','cate'=>$cate])}" class="down">New</a> </td>
+                        {else/}
+                        <td width="20%"><a href="{:url('web/product/index',['order'=>'create_time','cate'=>$cate])}">New</a> </td>
+                        {/if}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </header>
+        <section id="productlist">
+            {volist name="productArr" id="item"}
+            <div class="p1">
+                <a href="{:url('web/product/one',['id'=>$item.Id])}" title="{$item.name}">
+                    <figure>
+                        <img src="{$item.head_img}" alt="{$item.name}" width="170" height="170" />
+                        <figcaption>
+                            <p><strong>{$item.name}</strong></p>
+                            <p>{$item.title}</p>
+                            <p>As Low as:${$item.price}</p>
+                        </figcaption>
+                    </figure></a>
+            </div>
+            {/volist}
+            <div class="clear"></div>
+        </section>
+        <footer class="footer">
+            <div class="page">
+                <a href="javascript:;">Page:{$currentPage}/{$lastPage}</a>
+                {$page}
+            </div>
+            <br />
+            <br />
+        </footer>
+    </article>
+    <div class="clear"></div>
+</div>
+{include file="public/footer"/}
+<div class="side-bar">
+    <div class="side-bar-qq">
+        <a href="mailto:sales@gfindustrial.com"><i class="ico3"></i><p class="side_1">Email</p></a>
+    </div>
+    <div class="side-bar-qq">
+        <a href="skype:sales_gfindustrial?chat"><i class="ico4"></i><p class="side_2">Skype</p></a>
+    </div>
+    <div class="to-top">
+        <a href="#"><i class="ico2"></i></a>
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/common.js"></script>
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+</body>
+</html>

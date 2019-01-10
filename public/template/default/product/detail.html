@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    {include file="public/seo"/}
+    <link href="__STATIC__/css/inner.css" rel="stylesheet" />
+    <link rel="stylesheet" href="__STATIC__/css/fancybox.css" />
+    <script src="__STATIC__/js/jquery.min.js"></script>
+    <script src="__STATIC__/js/ypSlideOutMenus.js"></script>
+    <script src="__STATIC__/js/lhgdialog.min.js"></script>
+    <script src="__STATIC__/js/mousewheel.pack.js"></script>
+    <script src="__STATIC__/js/fancybox.pack.js"></script>
+    <script src="__STATIC__/js/modernizr.custom.js"></script>
+    <script src="__STATIC__/js/base.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+{include file="public/search"/}
+{include file="public/header"/}
+<nav id="nav">
+    <ul>
+        <li><a href="{:url('web/home/index')}">HOME</a></li>
+        <li class="sepeator"></li>
+        <li class="current"><a href="{:url('web/product/index')}">PRODUCTS</a></li>
+        <li class="sepeator"></li>
+        {volist name="navArr" id="vo"}
+        <li><a href="{:url('web/page/index',['nav'=>$vo.Id])}">{$vo.title}</a></li>
+        <li class="sepeator"></li>
+        {/volist}
+    </ul>
+</nav>
+<div id="main">
+    <aside id="aside">
+        {php}$cat = get_product_cate();{/php}
+        <nav id="category">
+            <h2>Category List</h2>
+            {$cat}
+        </nav>
+        <section id="browse">
+            <h2>browse by price</h2>
+            <ol>
+                <li><a href="search.html?minPrice=0&amp;maxPrice=1">0~$1</a></li>
+                <li><a href="search-1.html?minPrice=1&amp;maxPrice=2">$1~$2</a></li>
+                <li><a href="search-2.html?minPrice=2&amp;maxPrice=5">$2~$5</a></li>
+                <li><a href="search-3.html?minPrice=5&amp;maxPrice=10000">OVER $5</a></li>
+            </ol>
+        </section>
+    </aside>
+    <section id="location">
+        <p class="p2">
+            <a href="{:url('web/product/index')}">Products</a><span>&gt;</span>
+            <a href="{:url('web/product/index',['cate'=>$product.cat.Id])}">{$product.cat.name}</a><span>&gt;</span>
+            <a href="{:url('web/product/one',['id'=>$product.Id])}">{$product.name}</a>
+        </p>
+        {php}$prev = get_prev_product($product['Id']);{/php}
+        {php}$next = get_next_product($product['Id']);{/php}
+        <p class="p1">
+            {if condition="$prev"}
+            Prev : <a href="{:url('web/product/one',['id'=>$prev.Id])}" title="{$next.name}">{$prev.name}</a>
+            {else/}
+            {/if}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {if condition="$next"}
+            Next : <a href="{:url('web/product/one',['id'=>$next.Id])}" title="{$next.name}">{$next.name}</a>
+            {else/}
+            {/if}&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </p>
+    </section>
+    <article id="article">
+        <div class="imgview">
+            {php}$album = json_decode($product['album'],true);$anb=count($album){/php}
+            <p><a href="" id="zoom1" title="Click to Enlarge" class="fancybox"><img src="{$product.head_img}" width="360" height="360" id="zoom" /></a></p>
+            <!--  class="thickbox"-->
+            <div class="i1">
+                <ul>
+                    {volist name="album" id="item"}
+                    <li id="small1" onclick="show(1,{$anb},'{$item.url}','{$item.url}')"><img src="{$item.url}" width="75" height="75" /></li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <section class="information">
+            <h2>{$product.name}</h2>
+            {php}$property = json_decode($product['property'],true);{/php}
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                {foreach name="property" item="vo" key="k"}
+                <tr>
+                    <td class="c1" height="30">{$k}</td>
+                    <td class="c1">{$vo}</td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+            <h3 class="protitle">Number:</h3>
+               <p>{$product.number}$</p>
+            <h3 class="protitle">Prices:</h3>
+            <p>{$product.price}$</p>
+            <h3 class="protitle">Title:</h3>
+            <p style="">{$product.title}$</p>
+        </section>
+        <aside class="contactus">
+            <a onclick="showDialog(1320)" href="javascript:;" class="f1"><img src="__STATIC__/images/m1.jpg" alt="" />Enquiry Now</a>
+            <a href="mailto:sales@gfindustrial.com" class="f1"><img src="__STATIC__/images/m2.jpg" alt="" />E-mail Us</a>
+            <a onclick="AddFavorite('{:url(\'web/product/one\',[\'id\'=>$next.Id])}','{$seo.title}');" href="javascript:;" class="f1"><img src="__STATIC__/images/m3.jpg" alt="" />Bookmark this</a>
+            <a onclick="window.print();" href="javascript:;" class="f1"><img src="__STATIC__/images/m4.jpg" alt="" />Print this page</a>
+            <div class="clear"></div>
+            <a href="javascript:history.back();" class="closeWindow">BACK</a>
+        </aside>
+        <div class="clear"></div>
+        <h2 class="protitle">Products Specification:</h2>
+        <div class="procontent">
+           {$product.desc}
+        </div>
+        <h2 class="protitle">Packing informations:</h2>
+        <div class="procontent">
+            {$product.detail}
+        </div>
+        <h2 class="protitle">Related Products</h2>
+        <div id="categorylist" ontouchmove="tmove(event)" ontouchstart="tstart(event)" ontouchend="tend(event)">
+            {php}$res = get_related_product($product['cat']['Id']){/php}
+            <ul id="case_contain_list">
+                {volist name="res" id="vo"}
+                <li><a href="{:url('web/product/one',['id'=>$vo.Id])}" title="{$vo.name}"><p><img src="{$vo.head_img}" width="138" height="138" alt="DR001" /></p><span>{$vo.name}</span></a></li>
+                {/volist}
+            </ul>
+        </div>
+        <br />
+    </article>
+    <div class="clear"></div>
+</div>
+{include file="public/footer"/}
+<div class="side-bar">
+    <div class="side-bar-qq">
+        <a href="mailto:sales@gfindustrial.com"><i class="ico3"></i><p class="side_1">Email</p></a>
+    </div>
+    <div class="side-bar-qq">
+        <a href="skype:sales_gfindustrial?chat"><i class="ico4"></i><p class="side_2">Skype</p></a>
+    </div>
+    <div class="to-top">
+        <a href="#"><i class="ico2"></i></a>
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/common.js"></script>
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+<script type="text/javascript">
+    $(".fancybox").fancybox({
+        padding: 0,
+        openEffect : 'elastic',
+        openSpeed  : 150,
+        closeEffect : 'elastic',
+        closeSpeed  : 150,
+        closeClick : true,
+        helpers : {
+            overlay : null
+        }
+    });
+    function show(id, eid, burl,surl) {
+        var zoom = document.getElementById('zoom'); //get the reference to our zoom object
+        var zoom1 = document.getElementById('zoom1');
+        for (var i=1; i<=eid; i++) {
+            var obj = document.getElementById("small"+i);
+            if (i == id) {
+                obj.className = "current";
+                //zoom.href = burl;
+                zoom.src = surl;
+                zoom1.href = surl;
+                //MagicZoomPlus.refresh();
+            } else {
+                obj.className = "";
+            }
+        }
+    }
+</script>
+<script src="__STATIC__/js/jquery.mousewheel.js"></script>
+<script src="__STATIC__/js/hScrollPane.js"></script>
+<script type="text/javascript">
+    function showNews(id,url) {
+        for (var i=1; i<3; i++) {
+            var obj = document.getElementById("newstitle"+i);
+            var obj1 = document.getElementById("list"+i);
+            if (i == id) {
+                obj.className = "current";
+                obj1.style.display = "block";
+                document.getElementById("more").href = url;
+            } else {
+                obj.className = "";
+                obj1.style.display = "none";
+            }
+        }
+    }
+    var down = 0;
+    var up = 0;
+    function tstart(event) {
+        down = event.changedTouches[0].pageX; //获取手指刚触摸时的x坐标
+    }
+    function tend(event) {
+        up = event.changedTouches[0].pageX; //获取手指离开时的x坐标
+        var bodywidth = $(document.body).width();
+        var movewidth = 0;
+        var marginleft = 0 - parseInt($('#case_contain_list').css('margin-left').replace('px'));
+        if (down > up) {
+            movewidth = down - up;
+            if (movewidth + marginleft + $('#categorylist').width() > $('#case_contain_list').width())
+                marginleft = $('#case_contain_list').width() - $('#categorylist').width();
+            else {
+                marginleft = marginleft + movewidth;
+            }
+            $("#case_contain_list").stop().animate({ 'margin-left': '-' + marginleft + "px" }, { duration: 1500, easing: 'easeOutQuint', queue: false });
+        }
+        else if (down < up) {
+            movewidth = up - down;
+            if (marginleft - movewidth < 0)
+                marginleft = 0;
+            else {
+                marginleft -= movewidth;
+            }
+            $("#case_contain_list").stop().animate({ 'margin-left': '-' + marginleft + "px" }, { duration: 1500, easing: 'easeOutQuint', queue: false });
+        }
+        marginleft = (marginleft / ($('#case_contain_list').width() - $('#categorylist').width())) * ($('.hScrollPane_draghandle').width() - $('.hScrollPane_draghandle').width());
+        $('.hScrollPane_draghandle').stop().animate({ 'margin-left': '' + marginleft + "px" }, { duration: 1500, easing: 'easeOutQuint', queue: false });
+    }
+    function tmove(evet) {
+        evet.preventDefault();
+    }
+
+    $(function () {
+        $('#case_contain_list li').width(150);
+        pagecount = $('#case_contain_list li').size();
+        $('#case_contain_list').css({ 'width': (pagecount) * (150) + 'px' });
+        $("#categorylist").hScrollPane({
+            mover: "#case_contain_list",
+            showArrow: false,
+            moverW: function () { return $(".press").width(); } (),
+            handleCssAlter: "",
+            mousewheel: { bind: true, moveLength: 500 },
+            nwidth: 0
+        });
+    })
+</script>
+</body>
+</html>

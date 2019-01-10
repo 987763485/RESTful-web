@@ -12,10 +12,9 @@ namespace app\web\controller;
 
 use think\Controller;
 
-class Home extends Controller
+class Home extends HomeBaseController
 {
     public function index(){
-    return $this->fetch();
-}
-
+        return $this->fetch();
+    }
 }

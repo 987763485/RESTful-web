@@ -17,8 +17,8 @@ Route::post('api/option/:name','api/Option/updateOption');
 
 
 //banner api
-Route::get('api/banner','api/Banner/getAll');
 Route::get('api/banner/:id','api/Banner/getOne');
+Route::get('api/banner','api/Banner/getAll');
 Route::post('api/banner','api/Banner/post');
 Route::put('api/banner/:id','api/banner/updateById');
 Route::delete('api/banner/:id','api/Banner/deleteById');
@@ -61,6 +61,13 @@ Route::post('api/product/property','api/Property/post');
 Route::put('api/product/property/:id','api/Property/updateById');
 Route::delete('api/product/property/:id','api/Property/deleteById');
 
+//article api
+Route::get('api/article/:id','api/Article/getOne');
+Route::get('api/article','api/Article/getAll');
+Route::post('api/article','api/Article/post');
+Route::put('api/article/:id','api/Article/updateById');
+Route::delete('api/article/:id','api/Article/deleteById');
+
 //image category api
 Route::get('api/image/cat','api/ImageCat/getAll');
 Route::post('api/image/cat','api/ImageCat/post');
@@ -74,8 +81,17 @@ Route::delete('api/img/:id','api/Image/deleteById');
 //system api
 Route::get('api/system','api/System/get');
 Route::post('api/system','api/System/post');
-
-Route::get('web/home/index','web/Home/index');
-
 //upload api
 Route::post('api/upload/image','api/Upload/Image');
+
+
+Route::get('/','web/Home/index');
+Route::get('web/home/index','web/Home/index');
+
+Route::get('web/page/index','web/Page/Index');
+
+Route::get('web/product/index','web/Product/Index');
+Route::get('web/product/one','web/Product/getOne');
+
+
+Route::get('web/search','web/Product/Search');

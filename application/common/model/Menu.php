@@ -4,13 +4,13 @@
  * Author: wanxin
  * Email: 987763485@qq.com
  * Date: 2018/12/19
- * Time: 19:58
+ * Time: 20:01
  */
 
-namespace app\model;
+namespace app\common\model;
 
 
-class ArticleCat extends BaseModel
+class Menu extends BaseModel
 {
 
 }

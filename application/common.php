@@ -30,3 +30,4 @@ function success($data,$status=200){
 function faild($data,$status=200){
     return json(['code'=>10001,'msg'=>'bad request','data'=>$data],$status);
 }
+

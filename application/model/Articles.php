@@ -10,7 +10,8 @@
 namespace app\model;
 
 
-class Articles
+class Articles extends BaseModel
 {
+    protected $hidden = ['create_time','update_time','delete_time'];
 
 }

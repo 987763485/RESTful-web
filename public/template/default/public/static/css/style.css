@@ -1,0 +1,163 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, ins, kbd, q, s, samp,small, strike, strong, dl, dt, dd, ol, ul, li,fieldset, form, label, legend, caption,  tbody, tfoot, thead,  th{ margin: 0px; padding: 0px;outline: 0;vertical-align: baselinebaseline; text-decoration:none;} img{border: 0px; display:block;}h1, h2, h3, h4, h5, h6{ font-weight:normal; font-size:12px}ol, ul { list-style: none;} blockquote, q { quotes: none;} blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}a { blr:expression(this.onFocus=this.blur())}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block; margin:0; padding:0;}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+audio:not([controls]){display:none}
+html { background:url(../images/html_bg.jpg) repeat left top;}
+body { font-size:12px; font-family:Arial; color:#333; background:url(../images/body_bg.jpg) repeat-y center top; /*padding-top:30px;*/}
+a {color:#333; text-decoration:none;}
+a:hover { text-decoration:underline;}
+
+#container { background-color:#2597c9; border-bottom:solid 2px #8ac73b; /*position:fixed; left:0; top:0; z-index:10000;*/ width:100%}
+#hroot { height:30px; line-height:30px; width:1000px; margin:0 auto; background:url(../images/rootlogo.jpg) no-repeat left center; position:relative;}
+#hroot .keyword {width:165px; height:23px; line-height:23px; position:absolute; left:166px; top:4px; background:url(../images/keyword_bg.jpg) no-repeat left top; border:0; text-indent:13px;}
+#hroot .submit {width:30px; height:23px; background:url(../images/submit_bg.jpg) no-repeat left top; position:absolute; left:331px; top:4px; border:0; cursor:pointer}
+#hroot .advance { position:absolute; color:#fff; left:370px; height:30px; line-height:30px; top:0; display:none;}
+#hroot .advance a {color:#fff}
+#advance { display:none}
+
+#header {width:1000px; margin:0 auto; height:80px; position:relative;}
+#header h1 { display:none}
+#header .logo { position:absolute; left:16px; top:15px;}
+#header .favorites { position:absolute; right:10px; bottom:12px;}
+#header .favorites a { margin:0 5px;}
+#header .favorites a img { display:inline;}
+#nav {width:1000px; margin:0 auto; height:35px; background:url(../images/nav_bg.jpg) repeat-x left top; border-bottom:solid 3px #e5e5e5;}
+#nav ul { padding:0 18px;}
+#nav li { float:left; height:35px; display:inline}
+#nav li.sepeator {width:20px; background:url(../images/sepeator_bg.jpg) no-repeat center center;}
+#nav li a { display:block; height:35px; line-height:35px; width:120px; text-align:center; color:#fff;}
+#nav li a:hover { text-decoration:none; background:url(../images/nav_on.jpg) no-repeat left center;}
+#nav li.current a { background:url(../images/nav_on.jpg) no-repeat left center;}
+#banner {width:1000px; margin:7px auto 0;}
+
+#main {width:980px; margin:0 auto; padding:10px;}
+
+#aside {width:220px; float:left;}
+#category h2, #browse h2 {height:30px; line-height:30px; background:url(../images/sales_current.jpg) repeat-x left top; font-size:14px; color:#fff; text-indent:16px; text-transform:uppercase;}
+#category ol {border-left:solid 1px #ebebeb; border-bottom:solid 1px #ebebeb; border-right:solid 1px #ebebeb; padding:9px 9px 20px;}
+#category ol li { height:35px;  position:relative;  z-index:1000;}
+#category ol li a { display:block; height:35px; line-height:35px; background:url(../images/category_icon.jpg) no-repeat left center; text-indent:12px; border-bottom:dotted 1px #b4b4b4; white-space:nowrap; overflow:hidden;}
+#category ol li a:hover { text-decoration:none; color:#8ac73b; border-bottom:dotted 1px #8ac73b; }
+
+#category ol li ol {position: absolute; visibility: hidden; left: 200px; top: 0px; width: 200px; z-index:1000; }
+#category ol li:hover ol {visibility: visible; background: #FFF; border: 1px #ccc solid; padding:0 9px;}
+#category ol li ol li { overflow:hidden; width:190px; margin:0 auto;}
+#category ol li ol li a {}
+#category ol li ol li a:hover { }
+
+#browse { margin-top:10px;}
+#browse ol {border-left:solid 1px #ebebeb; border-bottom:solid 1px #ebebeb; border-right:solid 1px #ebebeb; padding-top:7px; height:180px}
+#browse ol li {width:183px; margin:5px auto 0; height:28px; }
+#browse ol li a { display:block; height:28px; line-height:28px; background:url(../images/icon1.jpg) no-repeat 13px center; text-indent:30px; border:solid 1px #ebebeb;}
+#browse ol li a:hover { text-decoration:none; border:solid 1px #8ac73b; color:#8ac73b}
+
+#sales, #industry {width:750px; float:right; position:relative;}
+#sales h2, #industry h2, #about h2, #newpro h2 { background:url(../images/sales_title.jpg) repeat-x left top; margin-bottom:13px;}
+#sales h2 span, #industry h2 span, #about h2 span, #newpro h2 span { display:inline-block; height:30px; line-height:30px; padding:0 15px; background:url(../images/sales_current.jpg) repeat-x left top; color:#fff; font-size:14px; text-transform:uppercase;}
+#sales a.more, #about a.more, #newpro a.more { position:absolute; right:12px; top:9px; color:#8ac73b; text-transform:uppercase; font-size:11px; z-index:10}
+#sales .f1 {width:240px; float:left; display:inline; margin-bottom:10px}
+#sales .f1 a {display:block; border:solid 1px #e4e4e4; padding:1px; height:166px;}
+#sales .f1 a:hover { border:solid 1px #8ac73b; }
+#sales .f1 figcaption { height:40px; line-height:40px; text-align:center; overflow:hidden; display:none;}
+#sales .f2 { margin:0 15px;}
+#industry h2 { margin-bottom:0;}
+#industry ul {border-left:solid 1px #ebebeb; border-bottom:solid 1px #ebebeb; border-right:solid 1px #ebebeb; padding:14px 0; height:122px;}
+#industry ul li { float:left; height:20px; line-height:20px; width:184px; background:url(../images/icon2.jpg) no-repeat left center; margin:0 30px; display:inline}
+#industry ul li a { margin-left:11px;}
+#advert {margin:10px 0; height:80px; float:right; width:750px;}
+#advert a {border:solid 1px #e4e4e4; display:block; height:78px; width:368px;}
+#advert a:hover {border:solid 1px #8ac73b;}
+#advert a.left { float:left}
+#advert a.right { float:right}
+#about {width:750px; float:right; position:relative;}
+#about h2 { margin-bottom:0;}
+#about .a1 { padding:10px; border-left:solid 1px #ebebeb; border-bottom:solid 1px #ebebeb; border-right:solid 1px #ebebeb; height:150px;}
+#about .a1 img { float:left; border:solid 1px #ebebeb; padding:1px;}
+#about .a1 p { float:right; width:495px; line-height:200%; display:inline}
+#newpro {width:750px; float:right; position:relative; margin-top:10px;}
+#newpro .list {border-left:solid 1px #ebebeb; border-bottom:solid 1px #ebebeb; border-right:solid 1px #ebebeb; height:200px;}
+#newpro a.btnPrev {width:15px; height:26px; position:absolute; left:15px; top:117px;}
+#newpro a.btnNext {width:15px; height:26px; position:absolute; right:10px; top:117px;}
+#newpro #demo {width:688px; position:absolute; left:30px; top:43px; overflow:hidden; }
+#newpro #demo li { float:left; width:156px; margin:0 8px; display:inline;}
+#newpro #demo li a { display:block;}
+#newpro #demo li a img {border:solid 1px #ccc; padding:2px;}
+#newpro #demo li a figcaption { background-color:#e1e1e1; height:30px; line-height:30px; text-align:center;}
+#newpro #demo li a:hover { text-decoration:none;}
+#newpro #demo li a:hover img {border:solid 1px #8ac73b;}
+#newpro #demo li a:hover figcaption { background-color:#8ac73b; color:#fff;}
+
+#menu {width:1000px; margin:0 auto;  background-color:#8ac73b; height:36px; line-height:36px; text-align:center; color:#fff;}
+#menu a {color:#fff; margin:0 30px;}
+#footer {width:1000px; margin:0 auto; background-color:#2597c9; height:31px; line-height:31px; text-align:center; color:#fff;}
+#footer a { color:#fff;}
+
+.clear {clear:both; height:0px; margin:0; padding:0; width:0; border:none; overflow:hidden;}
+
+.side-bar { position:fixed; right:1px; top:100px; z-index:10000; width:56px; }
+.side-bar div { cursor: pointer; margin: 1px 0 0; float:right; height:56px; }
+.side-bar div p { line-height:56px; }
+.side-bar .to-top { background:url(../images/drift_5.jpg) no-repeat left top; width:56px; height:56px; }
+.side-bar .ico2, .side-bar .ico3, .side-bar .ico4 { display: block; float: left; height: 56px; width: 56px;}
+.side-bar-qq { overflow:hidden; width:56px;}
+.side-bar-qq .ico2 { background:url(../images/drift_4.jpg) no-repeat left top; }
+.side-bar-qq .ico3 { background:url(../images/email.jpg) no-repeat left top; }
+.side-bar-qq .ico4 { background:url(../images/skype.jpg) no-repeat left top; }
+.side-bar-qq p { margin-left:1px; width:91px; text-align:center; color:#fff; float:left; }
+.side-bar-qq .side_1 { background-color:#ec4a4b; }
+.side-bar-qq .side_2 { background-color:#bdbdbd; }
+.side-bar-qq .side_3 { background-color:#2aabca; }
+.side-bar-weixin { position: relative; }
+.side-bar-weixin .ico2 { background:url(../images/drift_3.jpg) no-repeat left top; }
+.side-bar .erweixin { background-color:#fff; border: 1px solid #ccc; cursor: default !important; height: 150px; left: -133px; position: absolute; top: -3px; width: 130px; padding-top:10px; }
+.side-bar .erweixin img { display:block; margin:0 auto; }
+.side-bar .erweixin p { text-align:center; line-height:30px; height:30px; font-size:12px; }
+
+#slideshow {
+    background-color: #EEEEEE;
+    border: 1px solid #DDDDDD;
+    position: relative;
+    width: 1000px;
+    z-index: 1;
+}
+#slideshow ul {
+    height: 1%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#slideshow ul:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+#slideshow .slides {
+    overflow: hidden;
+    width: 1000px;
+}
+#slideshow .slides ul {
+    width: 10880px;
+}
+#slideshow .slides li {
+    float: left;
+    width: 1000px;
+}
+#slideshow .slides-nav {
+    background-color: #8ac73b;
+}
+#slideshow .slides-nav li {
+    float: left;
+}
+#slideshow .slides-nav li a {
+    display: block;
+    outline: medium none;
+    padding: 10px;
+    text-align: center;
+	color:#fff;
+}
+#slideshow .slides-nav li.on, #slideshow .slides-nav li.on a {
+    background-color: #2597c9;
+	text-decoration:none;
+}

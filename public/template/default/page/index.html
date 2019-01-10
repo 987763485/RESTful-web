@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    {include file="public/seo"/}
+    <link rel="stylesheet" href="__STATIC__/css/inner.css">
+    <script src="__STATIC__/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5.js"></script>
+    <![endif]--></head>
+
+<body>
+{include file="public/search"/}
+{include file="public/header"/}
+{include file="public/nav_menu"/}
+<div id="main">
+    <aside id="aside">
+        <nav id="category">
+            <h2>{$nav.title}</h2>
+            {php} $list = get_page_nav_list($nav['Id']){/php}
+            <ol>
+                {volist id="vo" name="list"}
+                {if condition="$vo['Id'] == $page['Id']"}
+                <li class='current'>
+                    <a title="{$vo.title}" href="{:url('web/page/index',['nav'=>$nav.Id,'id'=>$vo.Id])}">{$vo.title}</a>
+                </li>
+                {else/}
+                <li>
+                    <a title="{$vo.title}" href="{:url('web/page/index',['nav'=>$nav.Id,'id'=>$vo.Id])}">{$vo.title}</a>
+                </li>
+                {/if}
+                {/volist}
+            </ol>
+        </nav>
+    </aside>
+    <section id="location">
+        <h2>{$nav.title}</h2>
+        <p class="p1">
+            <a href="{:url('web/page/index',['nav'=>$nav.Id])}">{$nav.title}</a>
+            <span>>{$page.title}</span></p></section>
+    <article id="article">
+        <section id="artcontent">
+            {$page.content}
+        </section>
+    </article>
+    <div class="clear"></div>
+</div>
+{include file="public/footer" /}
+<div class="side-bar">
+    <div class="side-bar-qq">
+        <a href="mailto:sales@gfindustrial.com">
+            <i class="ico3"></i>
+            <p class="side_1">Email</p></a>
+    </div>
+    <div class="side-bar-qq">
+        <a href="skype:sales_gfindustrial?chat">
+            <i class="ico4"></i>
+            <p class="side_2">Skype</p></a>
+    </div>
+    <div class="to-top">
+        <a href="#">
+            <i class="ico2"></i>
+        </a>
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/common.js"></script>
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+</body>
+
+</html>

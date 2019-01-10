@@ -7,7 +7,7 @@
  * Time: 14:10
  */
 
-namespace app\model;
+namespace app\common\model;
 
 
 use think\Model;
@@ -76,6 +76,7 @@ class BaseModel extends Model
 
     protected function prefixImgUrl($value){
        return Request::instance()->domain()."/public/uploads".$value;
+//        return "../public/uploads".$value;
     }
 
 }

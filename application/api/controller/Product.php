@@ -15,14 +15,10 @@ use app\model\Products as ProductsModel;
 
 class Product extends BaseController
 {
-    public function getAll()
+    public function getAll($limit=10,$where=array())
     {
-        $res = ProductsModel::getProductList();
-//        if($res->isEmpty()){
-//            throw new RequestException();
-//        }else{
-//            return success($res);
-//        }
+        $product = new ProductsModel();
+        $res = $product::with('cat')->where($where)->order('create_time','desc')->paginate($limit);
         return success($res);
     }
 

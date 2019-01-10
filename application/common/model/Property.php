@@ -3,14 +3,14 @@
  * Created by.
  * Author: wanxin
  * Email: 987763485@qq.com
- * Date: 2018/12/19
- * Time: 20:04
+ * Date: 2018/12/22
+ * Time: 0:20
  */
 
-namespace app\model;
+namespace app\common\model;
 
 
-class ProductCat extends BaseModel
+class Property extends BaseModel
 {
     protected $hidden = ['create_time','update_time','delete_time'];
 

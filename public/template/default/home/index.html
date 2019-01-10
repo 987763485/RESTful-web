@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    {include file="public/seo"/}
+    <link rel="stylesheet" href="__STATIC__/css/style.css" />
+    <script src="__STATIC__/js/jquery.min.js"></script>
+    <script src="__STATIC__/js/ypSlideOutMenus.js"></script>
+    <script src="__STATIC__/js/cycle.js"></script>
+    <script src="__STATIC__/js/slide.js"></script>
+    <script src="__STATIC__/js/Qfast.js"></script>
+    <script type="text/javascript">
+        Qfast.add('common',{path:"__STATIC__/js/ued_common.js",type:"js"});//如果已经引用请删除此句
+        Qfast.add('scroll',{path:"__STATIC__/js/ued_scroll.js",type:"js",requires: ['common']});
+        Qfast.add('tabcard',{path:"__STATIC__/js/ued_tabcard.js",type:"js",requires: ['common']});
+        Qfast.add('focus',{path:"__STATIC__/js/ued_foucs.js",type:"js",requires: ['common']});
+    </script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+{include file="public/search"/}
+{include file="public/header" /}
+<nav id="nav">
+    <ul>
+        <li class="current"><a href="{:url('web/home/index')}">HOME</a></li>
+        <li class="sepeator"></li>
+        <li><a href="{:url('web/product/index')}">PRODUCTS</a></li>
+        <li class="sepeator"></li>
+        {volist name="navArr" id="vo"}
+        <li><a href="{:url('web/page/index',['nav'=>$vo.Id])}">{$vo.title}</a></li>
+        <li class="sepeator"></li>
+        {/volist}
+    </ul>
+</nav>
+<div id="banner">
+    <div id="slideshow">
+        <div class="slides">
+            {php} $bannerArr = get_banner();{/php}
+            <ul>
+                {volist name="bannerArr" id="vo"}
+                <li id="{$vo.title}"><a href=""><img src="{$vo.url}" width="1000" height="380" alt="{$vo.title}" /></a></li>
+                {/volist}
+            </ul>
+        </div>
+        <ul class="slides-nav">
+            {volist name="bannerArr" id="vo"}
+            <li><a href="{$vo.title}">{$vo.title}</a></li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+<div id="main">
+    <aside id="aside">
+        <nav id="category">
+            <h2>Category List</h2>
+            <ol>
+                <li><a rel="nofollow" href="Products_74_1.html">Bags</a>
+                    <ol>
+                        <li><a href="">Backpacks</a></li>
+                        <li><a href="">Sling Bags</a></li>
+                        <li><a href="">Drawstring Bags</a></li>
+                        <li><a href="">Cool Bags/ Lunch Bags</a></li>
+                        <li><a href="">Duffel Bags/ Travel Bags</a></li>
+                        <li><a href="">Tote Bag</a></li>
+                        <li><a href="">Shopping Bag/ Non-Woven Fabric Bags</a></li>
+                        <li><a href="">Cosmetic Bags</a></li>
+                        <li><a href="">Clear Bags</a></li>
+                        <li><a href="">Message Bags</a></li>
+                        <li><a href="">Pouch/ Other Bags</a></li>
+                    </ol></li>
+                <li><a rel="nofollow" href="">USB Flash Driver</a></li>
+                <li><a rel="nofollow" href="">Drinkware</a>
+                    <ol>
+                        <li><a href="">Sport Bottle</a></li>
+                        <li><a href="">Travel Mug/ Auto Mug/ Mug</a></li>
+                        <li><a href="">Ceramic Mug</a></li>
+                        <li><a href="">Vacuum Cup</a></li>
+                    </ol></li>
+                <li><a rel="nofollow" href="">Apparel &amp; Hats</a>
+                    <ol>
+                        <li><a href="">Apparel</a></li>
+                        <li><a href="">Hats</a></li>
+                    </ol></li>
+                <li><a rel="nofollow" href="">Electronics</a>
+                    <ol>
+                        <li><a href="">Flashlight / Fan</a></li>
+                        <li><a href="">Headset and Speaker</a></li>
+                        <li><a href="">Pedometer and Radio</a></li>
+                    </ol></li>
+                <li><a rel="nofollow" href="">Pens and Pencils</a></li>
+                <li><a rel="nofollow" href="">Key Chains</a></li>
+                <li><a rel="nofollow" href="">Office Suppliers</a>
+                    <ol>
+                        <li><a href="">Note Pads / Notebooks</a></li>
+                        <li><a href="">Caculators/ Piggy Bank</a></li>
+                        <li><a href="">Card Holder/ Pen Cups</a></li>
+                        <li><a href="">Clips / Memo Holder</a></li>
+                        <li><a href="">Rulers / Tapes</a></li>
+                        <li><a href="">Office Sets</a></li>
+                    </ol></li>
+                <li><a rel="nofollow" href="">Stress relivers</a></li>
+                <li><a rel="nofollow" href="">Kitchen Accessories</a></li>
+                <li><a rel="nofollow" href="">Personal Care</a></li>
+                <li><a rel="nofollow" href="">Bar Accessories &amp; Cheer Products</a></li>
+                <li><a rel="nofollow" href="">Tools</a></li>
+                <li><a rel="nofollow" href="">Beach chair&amp; Beach tent</a></li>
+                <li><a rel="nofollow" href="">Toys</a></li>
+                <li><a rel="nofollow" href="">Gift Sets</a></li>
+                <li><a rel="nofollow" href="">Cellphone &amp; Computer accessories</a></li>
+                <li><a rel="nofollow" href="">Wristbands &amp; Glasses</a></li>
+                <li><a rel="nofollow" href="">Watch and Clock</a></li>
+                <li><a rel="nofollow" href="">Automotive</a></li>
+                <li><a rel="nofollow" href="">Umbrella &amp; Rain cape</a></li>
+                <li><a rel="nofollow" href="">Medal and pins</a></li>
+                <li><a rel="nofollow" href="">Power Bank/ Mobile Phone Charger</a></li>
+                <li><a rel="nofollow" href="l">Display products</a> </li>
+            </ol>
+        </nav>
+        <section id="browse">
+            <h2>browse by price</h2>
+            <ol>
+                <li><a href="">0~$1</a></li>
+                <li><a href="">$1~$2</a></li>
+                <li><a href="">$2~$5</a></li>
+                <li><a href="">OVER $5</a></li>
+            </ol>
+        </section>
+    </aside>
+    <section id="sales">
+        <h2><span>Sales Promotion</span></h2>
+        <figure class="f1">
+            <a href="sales_13.html"><img src="__UPLOAD__/20141116164641724.jpg" alt="Kinds of Clear Bags" width="236" height="166" /></a>
+            <figcaption>
+                Kinds of Clear Bags
+            </figcaption>
+        </figure>
+        <figure class="f1 f2">
+            <a href="sales_11.html"><img src="__UPLOAD__/20140103215910386.jpg" alt="New" width="236" height="166" /></a>
+            <figcaption>
+                New
+            </figcaption>
+        </figure>
+        <figure class="f1">
+            <a href="sales_12.html"><img src="__UPLOAD__/20140103223315128.jpg" alt="Best Selling" width="236" height="166" /></a>
+            <figcaption>
+                Best Selling
+            </figcaption>
+        </figure>
+        <figure class="f1">
+            <a href="sales_15.html"><img src="__UPLOAD__/20140103224559967.jpg" alt="30% OFF Sale" width="236" height="166" /></a>
+            <figcaption>
+                30% OFF Sale
+            </figcaption>
+        </figure>
+        <figure class="f1 f2">
+            <a href="sales_14.html"><img src="__UPLOAD__/20140103213632295.jpg" alt="Great Value" width="236" height="166" /></a>
+            <figcaption>
+                Great Value
+            </figcaption>
+        </figure>
+        <figure class="f1">
+            <a href="sales_10.html"><img src="__UPLOAD__/20140103205320160.jpg" alt="Ecological products" width="236" height="166" /></a>
+            <figcaption>
+                Ecological products
+            </figcaption>
+        </figure>
+        <div class="clear"></div>
+        <a href="sales_13.html" class="more">&gt;&gt;more</a>
+    </section>
+    <section id="industry">
+        <h2><span>BEST SELLERS BY INDUSTRY</span></h2>
+        <ul>
+            <li><a href="">Health Care / Pharmacy</a></li>
+            <li><a href="">Communications</a></li>
+            <li><a href="">Service For Life</a></li>
+            <li><a href="">Education / Train</a></li>
+            <li><a href="">Sales</a></li>
+            <li><a href="">Transportation</a></li>
+            <li><a href="">Entertainment / Sports</a></li>
+            <li><a href="">Wholesale / Retail</a></li>
+            <li><a href="">Real Estate / Construction</a></li>
+            <li><a href="">IT / Computer / Electronic</a></li>
+            <li><a href="">Restaurant / Travel</a></li>
+            <li><a href="">Financial / Insurance / Bank</a></li>
+            <li><a href="">Food/ Drink</a></li>
+            <li><a href="">AD / Media</a></li>
+            <li><a href="">Kids / Ladies</a></li>
+            <li><a href="">Apparel</a></li>
+            <li><a href="">Government / Non-Profit</a></li>
+            <li><a href="">Energy / Raw Material</a></li>
+        </ul>
+    </section>
+    <div id="advert">
+        <a href="catalogue" class="left" target="_blank"><img src="__STATIC__/images/catalog.jpg" alt="request catalog" width="368" height="78" /></a>
+        <a href="About_7.html" class="right"><img src="__STATIC__/images/contacts.jpg" alt="contacts" width="368" height="78" /></a>
+    </div>
+    <section id="about">
+        <h2><span>About Us</span></h2>
+        <figure class="a1">
+            <img src="__STATIC__/images/about.jpg" alt="About Us" width="216" height="141" />
+            <figcaption>
+                <p>Shanghai GF Industrial Co.,Ltd is China's top promotional products supplier. With more than 10 years of experience, GF Industrial has made a name for reliability, satisfaction and the best hands on attention in China.</p>
+                <p>GF Industrial works within your defined budgets and follows the entire process from start to finish to guarantee the timely delivery of your product. The process includes the presentation and selection of the item, review of pre-production samples, and....</p>
+            </figcaption>
+        </figure>
+        <a href="About_1.html" class="more">&gt;&gt;more</a>
+    </section>
+    <section id="newpro">
+        <h2><span>NEW PRODUCTS</span></h2>
+        <div class="list">
+            <div id="demo">
+                <ul>
+                    <li><a href="Product_2286.html" title="BA417">
+                        <figure>
+                            <img src="__UPLOAD__/20150423211005480.jpg" alt="BA417" width="150" height="150" />
+                            <figcaption>
+                                BA417
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2285.html" title="BA416">
+                        <figure>
+                            <img src="__UPLOAD__/20150423210540289.jpg" alt="BA416" width="150" height="150" />
+                            <figcaption>
+                                BA416
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2283.html" title="BA415">
+                        <figure>
+                            <img src="__UPLOAD__/20150423205135659.jpg" alt="BA415" width="150" height="150" />
+                            <figcaption>
+                                BA415
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2282.html" title="BA414">
+                        <figure>
+                            <img src="__UPLOAD__/20150423204311445.jpg" alt="BA414" width="150" height="150" />
+                            <figcaption>
+                                BA414
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2281.html" title="BA431">
+                        <figure>
+                            <img src="__UPLOAD__/20150403153254804.jpg" alt="BA431" width="150" height="150" />
+                            <figcaption>
+                                BA431
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2277.html" title="BA408">
+                        <figure>
+                            <img src="__UPLOAD__/20150403141357385.jpg" alt="BA408" width="150" height="150" />
+                            <figcaption>
+                                BA408
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2276.html" title="BA407">
+                        <figure>
+                            <img src="__UPLOAD__/20150403140320949.jpg" alt="BA407" width="150" height="150" />
+                            <figcaption>
+                                BA407
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2273.html" title="BA403">
+                        <figure>
+                            <img src="__UPLOAD__/20150402212505681.jpg" alt="BA403" width="150" height="150" />
+                            <figcaption>
+                                BA403
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2272.html" title="BA402">
+                        <figure>
+                            <img src="__UPLOAD__/20150402211808566.jpg" alt="BA402" width="150" height="150" />
+                            <figcaption>
+                                BA402
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2271.html" title="BA401">
+                        <figure>
+                            <img src="__UPLOAD__/20150402211137783.jpg" alt="BA401" width="150" height="150" />
+                            <figcaption>
+                                BA401
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2265.html" title="BA395">
+                        <figure>
+                            <img src="__UPLOAD__/20150330162353892.jpg" alt="BA395" width="150" height="150" />
+                            <figcaption>
+                                BA395
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2264.html" title="BA394">
+                        <figure>
+                            <img src="__UPLOAD__/20150330161009281.jpg" alt="BA394" width="150" height="150" />
+                            <figcaption>
+                                BA394
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2262.html" title="BA391">
+                        <figure>
+                            <img src="__UPLOAD__/20150330155151602.jpg" alt="BA391" width="150" height="150" />
+                            <figcaption>
+                                BA391
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2259.html" title="BA382">
+                        <figure>
+                            <img src="__UPLOAD__/20150327200226381.jpg" alt="BA382" width="150" height="150" />
+                            <figcaption>
+                                BA382
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2255.html" title="BA385">
+                        <figure>
+                            <img src="__UPLOAD__/20150327171104740.jpg" alt="BA385" width="150" height="150" />
+                            <figcaption>
+                                BA385
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2254.html" title="BA381">
+                        <figure>
+                            <img src="__UPLOAD__/20150327170440762.jpg" alt="BA381" width="150" height="150" />
+                            <figcaption>
+                                BA381
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2252.html" title="BA380">
+                        <figure>
+                            <img src="__UPLOAD__/20150327165802576.jpg" alt="BA380" width="150" height="150" />
+                            <figcaption>
+                                BA380
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2251.html" title="BA379">
+                        <figure>
+                            <img src="__UPLOAD__/20150327165144164.jpg" alt="BA379" width="150" height="150" />
+                            <figcaption>
+                                BA379
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2250.html" title="BA374">
+                        <figure>
+                            <img src="__UPLOAD__/20150327164518249.jpg" alt="BA374" width="150" height="150" />
+                            <figcaption>
+                                BA374
+                            </figcaption>
+                        </figure></a></li>
+                    <li><a href="Product_2249.html" title="BA384">
+                        <figure>
+                            <img src="__UPLOAD__/20150327161754973.jpg" alt="BA384" width="150" height="150" />
+                            <figcaption>
+                                BA384
+                            </figcaption>
+                        </figure></a></li>
+                </ul>
+            </div>
+            <a href="javascript:;" class="btnPrev" id="btnPrev"><img src="__STATIC__/images/btnPrev.jpg" alt="prev" width="15" height="26" /></a>
+            <a href="javascript:;" class="btnNext" id="btnNext"><img src="__STATIC__/images/btnNext.jpg" alt="next" width="15" height="26" /></a>
+        </div>
+        <a href="Products_1_1.html" class="more">&gt;&gt;more</a>
+    </section>
+    <script language="javascript">
+        Qfast(false,'scroll',function(){
+            var Scroll = new uedScroll();
+            Scroll.scrollContId = "demo";//主体区域
+            Scroll.scrollSplit = {mytag:"li",myclass:""};//滚动单元和class名
+            Scroll.arrLeftId = "btnPrev";//左按钮
+            Scroll.arrRightId = "btnNext";//右按钮
+            Scroll.sSliceIndex = 4;//每次滚动单元的个数
+            Scroll.sDir = 1;//滚动方向:1为左右、2为上下
+            Scroll.nStep = 10;//速度，越大越快
+            Scroll.nType = 2;//滚动类型:1为返回式、2为循环式、3在循环式自动滚动时设置
+            Scroll.autoPlay = true;//是否自动滚动
+            Scroll.autoPlayTime = 3;//自动滚动间隔时间（秒） 设置为0，则不停顿
+            Scroll.init();
+        })
+    </script>
+    <div class="clear"></div>
+</div>
+{include file="public/footer" /}
+<div class="side-bar">
+    <div class="side-bar-qq">
+        <a href="mailto:sales@gfindustrial.com"><i class="ico3"></i><p class="side_1">Email</p></a>
+    </div>
+    <div class="side-bar-qq">
+        <a href="skype:sales_gfindustrial?chat"><i class="ico4"></i><p class="side_2">Skype</p></a>
+    </div>
+    <div class="to-top">
+        <a href="#"><i class="ico2"></i></a>
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/common.js"></script>
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+</body>
+</html>
