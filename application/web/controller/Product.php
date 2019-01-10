@@ -16,7 +16,7 @@ use app\common\model\Products;
 
 class Product extends HomeBaseController
 {
-    public function Index($cur = 12,$order = 'hot',$cate = 0){
+    public function index($cur = 12,$order = 'hot',$cate = 0){
         $cateArr = $this->getCateID($cate);
         $where['cat_id'] = array('in',$cateArr);
         $where['status'] = array('eq',1);
@@ -43,7 +43,7 @@ class Product extends HomeBaseController
     //根据父类Id取得所有包含分类的Id，返回一个数组
     public function getCateID($id){
         $category = new ProductCat();
-        $res =  $category->order('weight','desc')->select()->toArray();
+        $res =  $category->order('weight','desc')->select();
         return get_cate_array($res,$id);
     }
 

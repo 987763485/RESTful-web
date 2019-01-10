@@ -42,8 +42,8 @@ function get_product_refer($number){
     return ApiService::get_product_refer($number);
 }
 
-function get_article($number){
-    return ApiService::get_article($number);
+function get_news($number){
+    return ApiService::get_news($number);
 }
 
 function get_page_nav_list($nav){

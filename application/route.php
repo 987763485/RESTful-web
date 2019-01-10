@@ -88,10 +88,10 @@ Route::post('api/upload/image','api/Upload/Image');
 Route::get('/','web/Home/index');
 Route::get('web/home/index','web/Home/index');
 
-Route::get('web/page/index','web/Page/Index');
+Route::get('web/page/index','web/Page/index');
 
-Route::get('web/product/index','web/Product/Index');
+Route::get('web/product/index','web/Product/index');
 Route::get('web/product/one','web/Product/getOne');
 
 
-Route::get('web/search','web/Product/Search');
+Route::get('web/search','web/Product/search');

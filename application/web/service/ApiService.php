@@ -20,7 +20,10 @@ class ApiService
 
     public static function get_product_cate(){
         $cate = model('ProductCat');
-        $data = $cate->order('weight','desc')->select()->toArray();
+        $data = $cate->order('weight','desc')->select();
+        if($data->isEmpty()){
+            return ;
+        }
         $tree = self::get_cate_tree($data,0);
         $html = self::get_cate_tree_html($tree);
         return $html;
@@ -97,7 +100,7 @@ class ApiService
         return $products->where(['status'=>1])->limit($number)->order('is_refer','desc')->select();
     }
 
-    public static function get_article($number = 4){
+    public static function get_news($number = 4){
         $articles = model('Articles');
         return $articles->where(['status'=>1])->limit($number)->order('create_time','desc')->select();
     }

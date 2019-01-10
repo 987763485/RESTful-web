@@ -16,14 +16,14 @@ use think\Controller;
 
 class Page extends Controller
 {
-    public function Index(){
+    public function index(){
         $nav_id = input('nav');
         $id = input('id');
         $pages = new PageModel();
         if($id){
             $page = $pages->where(['Id'=>$id,'status'=>1])->find()->toArray();
         }else{
-            $page = $pages->where(['nav_id'=>$nav_id,'status'=>1])->order('weight','desc')->find()->toArray();
+            $page = $pages->where(['nav_id'=>$nav_id,'status'=>1])->order('weight','desc')->find();
         }
         $nav = new Nav();
         $res = $nav->find(['Id'=>$nav_id])->toArray();
